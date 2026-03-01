@@ -1,0 +1,15 @@
+name: Run on main, or merge to main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  dumps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
