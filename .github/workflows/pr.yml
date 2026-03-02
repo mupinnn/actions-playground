@@ -24,7 +24,7 @@ jobs:
         with:
           images: test/app
           tags: |
-            type=sha,format=long,prefix={{branch}}-
+            type=raw,value=sha-${{ github.event.pull_request.head.sha }}
             type=ref,event=pr
 
       - name: Print extracted metadata
