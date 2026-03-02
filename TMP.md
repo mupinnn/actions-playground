@@ -6,3 +6,4 @@ The quick brown fox jumps over the lazy dog
 - be
 - merged
 - regularly
+- yes
