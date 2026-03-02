@@ -17,3 +17,17 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: test/app
+          tags: |
+            type=sha,format=long,prefix={{branch}}-
+            type=ref,event=pr
+
+      - name: Print extracted metadata
+        env:
+          META: ${{ toJson(steps.meta.outputs) }}
+        run: echo "$META"

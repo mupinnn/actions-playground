@@ -12,4 +12,8 @@ jobs:
       - name: GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          GSHA: ${{ github.sha }}
+        run: |
+          echo "$GSHA"
+          echo "$GITHUB_SHA"
+          echo "$GITHUB_CONTEXT"
